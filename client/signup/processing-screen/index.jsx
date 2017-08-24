@@ -23,7 +23,7 @@ export class SignupProcessingScreen extends Component {
 		steps: PropTypes.array.isRequired,
 		user: PropTypes.object,
 		signupProgress: PropTypes.array,
-		flow: PropTypes.string,
+		flowSteps: PropTypes.array,
 	};
 
 	componentWillMount() {
@@ -153,6 +153,10 @@ export class SignupProcessingScreen extends Component {
 			} );
 	}
 
+	currentFlowIncludesDomainStep() {
+		return this.props.flowSteps.indexOf( 'domains' ) !== -1;
+	}
+
 	handleClick( ctaName, redirectTo = '' ) {
 		if ( ! this.props.loginHandler ) {
 			return;
@@ -231,7 +235,7 @@ export class SignupProcessingScreen extends Component {
 	}
 
 	render() {
-		if ( abtest( 'postSignupUpgradeScreen' ) === 'modified' && ! this.state.hasPaidSubscription && this.props.flow !== 'rebrand-cities' ) {
+		if ( abtest( 'postSignupUpgradeScreen' ) === 'modified' && ! this.state.hasPaidSubscription && this.currentFlowIncludesDomainStep() ) {
 			return this.renderUpgradeScreen();
 		}
 
