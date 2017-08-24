@@ -32,8 +32,12 @@ const emptyValues = {
 
 class RegistrantExtraInfoFrForm extends React.PureComponent {
 	static propTypes = {
+		children: PropTypes.node,
+		contactDetails: PropTypes.object,
 		isVisible: PropTypes.bool,
 		onSubmit: PropTypes.func,
+		translate: PropTypes.func,
+		updateContactDetailsCache: PropTypes.func,
 	}
 
 	static defaultProps = {
