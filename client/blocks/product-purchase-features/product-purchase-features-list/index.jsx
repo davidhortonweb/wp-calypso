@@ -32,6 +32,7 @@ import BusinessOnboarding from './business-onboarding';
 import CustomDomain from './custom-domain';
 import GoogleAnalyticsStats from './google-analytics-stats';
 import JetpackAntiSpam from './jetpack-anti-spam';
+import JetpackPublicize from './jetpack-publicize';
 import JetpackVideo from './jetpack-video';
 import JetpackBackupSecurity from './jetpack-backup-security';
 import JetpackReturnToDashboard from './jetpack-return-to-dashboard';
@@ -195,11 +196,18 @@ class ProductPurchaseFeaturesList extends Component {
 		const {	selectedSite } = this.props;
 
 		return [
+			<MonetizeSite
+				selectedSite={ selectedSite }
+				key="monetizeSiteFeature"
+			/>,
 			<JetpackBackupSecurity
 				key="jetpackBackupSecurity"
 			/>,
 			<JetpackAntiSpam
 				key="jetpackAntiSpam"
+			/>,
+			<JetpackPublicize
+				key="jetpackPublicize"
 			/>,
 			<JetpackVideo
 				key="jetpackVideo"
@@ -240,11 +248,30 @@ class ProductPurchaseFeaturesList extends Component {
 		const {	selectedSite } = this.props;
 
 		return [
+			<BusinessOnboarding
+				key="businessOnboarding"
+				onClick={ this.props.recordBusinessOnboardingClick }
+			/>,
+			<FindNewTheme
+				selectedSite={ selectedSite }
+				key="findNewThemeFeature"
+			/>,
 			<JetpackBackupSecurity
 				key="jetpackBackupSecurity"
 			/>,
+			<MonetizeSite
+				selectedSite={ selectedSite }
+				key="monetizeSiteFeature"
+			/>,
+			<GoogleAnalyticsStats
+				selectedSite={ selectedSite }
+				key="googleAnalyticsStatsFeature"
+			/>,
 			<JetpackAntiSpam
 				key="jetpackAntiSpam"
+			/>,
+			<JetpackPublicize
+				key="jetpackPublicize"
 			/>,
 			<JetpackVideo
 				key="jetpackVideo"

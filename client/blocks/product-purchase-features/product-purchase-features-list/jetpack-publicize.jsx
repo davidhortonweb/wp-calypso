@@ -13,13 +13,13 @@ export default localize( ( { translate } ) => {
 	return (
 		<div className="product-purchase-features-list__item">
 			<PurchaseDetail
-				icon="flag"
-				title={ translate( 'Site Security' ) }
+				icon="comment"
+				title={ translate( 'Marketing Automation' ) }
 				description={ translate(
-					'Your site is being securely backed up and scanned with real-time sync.'
+					'Schedule tweets, Facebook posts, and other social posts in advance. ' +
+					'No limits.'
 				) }
-				buttonText={ translate( 'Visit security dashboard' ) }
-				href="https://dashboard.vaultpress.com/" />
+			/>
 		</div>
 	);
 } );
